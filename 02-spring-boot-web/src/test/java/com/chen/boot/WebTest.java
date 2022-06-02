@@ -35,4 +35,13 @@ public class WebTest {
                 .andReturn().getResponse().getContentAsString();
         System.out.println("result : "+responseString);
     }
+
+    @Test
+    public void saveUsers()throws Exception{
+        mockMvc.perform(MockMvcRequestBuilders.post("/saveUser")
+        .param("name","")
+        .param("age","66")
+        .param("pass","test"));
+    }
 }
+

@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.chen</groupId>
-    <artifactId>boot</artifactId>
+    <artifactId>03-spring-boot-jsp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>boot</name>
-    <description>Spring Boot web</description>
+    <name>03-spring-boot-jsp</name>
+    <description>Spring Boot 整合jsp</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -29,24 +29,23 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+    <!--
+    spring-boot-starter-web 包依赖了 spring-boot-starter-tomcat 不需要再单独配置。引⼊ jstl 和内嵌的
+    tomcat，jstl 是⼀个 JSP 标签集合，它封装了 JSP 应⽤的通⽤核⼼功能。tomcat-embed-jasper 主要⽤来⽀
+    持 JSP 的解析和运⾏。
+    -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
         </dependency>
     </dependencies>
 
@@ -55,14 +54,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
             </plugin>
         </plugins>
     </build>
